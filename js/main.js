@@ -1,3 +1,29 @@
+function loginUser(){
+	var user = document.getElementById("user").value;
+	var pword = document.getElementById("pword").value;
+	var dataString = "user="+user+"&pword="+pword;
+
+
+	if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+        	
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var myData= eval("(" + xmlhttp.responseText + ")");
+                alert(myData['msg']);
+            }
+        }
+		
+        xmlhttp.open("POST","https://neacademys.com/temp/login.php", true);//+"&q1="+str2,true);
+        xmlhttp.send();
+}
+
+
 $("#upSubmitted").click(function(){
 	var user = document.getElementById("user").value;
 	var pword = document.getElementById("pword").value;
@@ -19,7 +45,7 @@ $("#upSubmitted").click(function(){
 	xmlhttp.send();*/
  //$.mobile.allowCrossDomainPages = true;
 
-	$.ajax({
+	/*$.ajax({
 		type: "POST",
 		url: "./login.php",
 		//crossDomain: true,
@@ -40,6 +66,23 @@ $("#upSubmitted").click(function(){
 		}
 	});
 	//return false;
+	*/
+
+	if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                alert(xmlhttp.responseText);
+            }
+        }
+		
+        xmlhttp.open("POST","./login.php?Username=" + user + "&pass=" + pword, true);//+"&q1="+str2,true);
+        xmlhttp.send();
 	
 
 /*xmlhttp.onreadystatechange = function() {

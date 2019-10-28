@@ -12,12 +12,11 @@ $formData->city = "New York";
 $myJSON = json_encode($formData);
 echo $myJSON;*/
 
-/*$response['msg'] = "Hello";
+$response['msg'] = "Hello";
 $response['triggered'] = "How are you?";
 $response['lastUpdateCount'] = "Good Bye";
 
-echo json_encode($response);*/
-echo "hi";
+echo json_encode($response);
 
 /*include("connection.inc.php");
 	session_start();
