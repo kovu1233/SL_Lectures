@@ -74,10 +74,10 @@
                         <div class="content-block" style="position: absolute; width: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                             <p>
                                 <table align="center" border="0" style="background-color: #aaa; padding: 5%;" class="mkshdw"><tr>
-                                    <td><b>Login:</b></td><td><input type="text" id="usa" class="rndTxt"></td></tr><tr>
+                                    <td><b>Login:</b></td><td><input type="text" id="user" class="rndTxt"></td></tr><tr>
                                     <td><b>Password:</b></td><td><input type="password" id="pword" class="rndTxt"></td></tr><tr>
                                     <td colspan="2">&nbsp;</td></tr><tr>
-                                    <td colspan="1" align="right" id="upSubmitted" onmousedown="usa();" class="button" style="background-color:#2979FF; color: #FFFFFF;">Login</td><td></td></tr>
+                                    <td colspan="1" align="right" id="upSubmitted" onmousedown="loginUser();" class="button" style="background-color:#2979FF; color: #FFFFFF;">Login</td><td></td></tr>
                                 </table>
                             
                             <!--<a href="https://www.speechtexter.com" onclick="javascript:startlisten();return false;" id="listen">► Start</a>-->
@@ -104,7 +104,8 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-    <script type="text/javascript" src="js/mutarjemeen.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    
 </body>
 
 </html>

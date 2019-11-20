@@ -1,7 +1,8 @@
-
 <!DOCTYPE html>
+
 <html>
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <!--<script type="text/javascript" src="js/jquery.js"></script>-->
     <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
@@ -53,9 +54,11 @@
         <div class="view view-main">
             <!-- Top Navbar-->
             <div class="navbar">
+                <img src="images\back.png" style="position: relative; float: left; margin-left: 1%; height: 90%; vertical-align: middle; cursor: pointer; display: none; z-index: 5;" id="navChanger" onclick="navChanger();">
                 <div class="navbar-inner">
+                    
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding"><b>قسم الترجمة الإشارية</b></div>
+                    <div class="center sliding" style="font-size: 120%;"><b>قسم الترجمة الإشارية</b></div>
                     <div class="right">
                         <!--
                           Right link contains only icon - additional "icon-only" class
@@ -70,22 +73,52 @@
                 <!-- Page, "data-page" contains page name -->
                 <div data-page="index" class="page">
                     <!-- Scrollable page content -->
-                    <div class="page-content">
-                        <div class="content-block">
+                    <div class="page-content" style="height: 100%;">
+                        <div class="content-block" style="position: absolute; width: 100%; height: 100%;">
                             <p>
-                                <table align="center"><tr>
+                                <table align="center" border="0" style="background-color: #aaa; padding: 5%; top: 50%; left: 50%; transform: translate(-1%, -1%);" class="mkshdw" id="tbl1"><tr>
                                     <td><b>Login:</b></td><td><input type="text" id="user" class="rndTxt"></td></tr><tr>
                                     <td><b>Password:</b></td><td><input type="password" id="pword" class="rndTxt"></td></tr><tr>
                                     <td colspan="2">&nbsp;</td></tr><tr>
-                                    <td colspan="1" align="right" id="upSubmitted" onmousedown="loginUser();" class="button" style="background-color:#2979FF; color: #FFFFFF;">Login</td><td></td></tr>
+                                    <td colspan="1" align="right" id="upSubmitted" onclick="loginUser();" class="button" style="background-color:#2979FF; color: #FFFFFF;">Login</td><td></td></tr>
                                 </table>
-                            
-                            <!--<a href="https://www.speechtexter.com" onclick="javascript:startlisten();return false;" id="listen">► Start</a>-->
 
-                            
-                            
+                                <table align="center" border="1" width="80%" style="background-color: #aaa; padding: 5%; display: none;" class="mkshdw" id="tbl2" cellpadding="0" cellspacing="0"></table>
+
+                                <table align="center" border="1" width="80%" style="background-color: #aaa; padding: 5%; display: none;" class="mkshdw" id="tbl3" cellpadding="0" cellspacing="0"></table>
+
+                                <table align="center" border="1" style="background-color: #aaa; padding: 5%; display: none;" class="mkshdw" id="tbl4" cellpadding="0" cellspacing="0">
+                                    <tbody style="color: #000; font-weight: bolder;">
+                                    <tr style="background-color: #eeee99;"><td>&nbsp;Student Name&nbsp;</td><td>&nbsp;Attended&nbsp;</td><td>&nbsp;Delay&nbsp;</td><td>&nbsp;Comments&nbsp;</td></tr></tbody>
+                                    <tbody id="mutarjemeen"></tbody>
+                                    <tbody id="mutarjemeenSub"></tbody>
+                                </table>
+
+                                <div id="tbl5" style="display: none;">
+                                    <table align="center" border="0" style="background-color: #aaa; padding: 5%;" class="mkshdw" cellpadding="0" cellspacing="0">
+                                        <tr><td>Comments for: <span style="font-weight: bolder; color: #000;" id="cName"></span></td>
+                                        <td><input type="hidden" id="idHolder"></td></tr>
+                                        <tr><td colspan="2"><textarea cols="40" rows="10" id="commentArea"></textarea></td></tr>
+                                        <tr>
+                                            <td align="left" id="upClosedC" onclick="closeComment();" class="button" style="background-color:#CD5C5C; color: #FFFFFF;">Cancel</td>
+                                            <td align="right" id="upSubmittedC" onclick="addComment(this.id);" class="button" style="background-color:#2979FF; color: #FFFFFF;">Submit</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div id="tbl6" style="display: none;">
+                                    <table align="center" border="0" style="background-color: #aaa; padding: 5%;" class="mkshdw" cellpadding="0" cellspacing="0">
+                                        <tr><td><span style="font-weight: bolder; color: #000;" id="tName"></span>&nbsp;is late (<i>minutes</i>)</td>
+                                            <td>&nbsp;</td></tr>
+                                        <tr><td><input id="late" type="tel" size="2" min='00' max="60" step="1" onchange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"></td></tr>
+                                        <tr><td colspan="2">&nbsp;</td></tr>
+                                            <td align="left" id="upClosedT" onclick="closeComment();" class="button" style="background-color:#CD5C5C; color: #FFFFFF;">Cancel</td>
+                                            <td align="right" id="upSubmittedT" onclick="addComment(this.id);" class="button" style="background-color:#2979FF; color: #FFFFFF;">Submit</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </p>
-                            <!-- Link to another page -->
+                            
                         </div>
                     </div>
                 </div>
@@ -102,8 +135,8 @@
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
-    <!--<script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>-->
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     
 </body>
