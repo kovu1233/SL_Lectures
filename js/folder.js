@@ -28,7 +28,7 @@ navigator.notification.alert("test");
                     if (i.nativeURL.indexOf('www/tones') > -1) {
                         //found the target /res directory
                         var path = i.nativeURL + '/Daybreak.mp3';
-                        navigator.notification.alert (path);
+                        document.getElementById("alertedContent").value = path;
                         window.resolveLocalFileSystemURL(path, app.gotFile, app.fail);
                         return false; //no need to iterate more
                     } else {
@@ -40,19 +40,19 @@ navigator.notification.alert("test");
 //test
         },
         function (error) {
-            navigator.notification.alert("readEntries error: " + error.code);
+            document.getElementById("alertedContent").value = "readEntries error: " + error.code;
         }
     );
 };
 
 var dirError = function (error) {
-    navigator.notification.alert("getDirectory error: " + error.code);
+    document.getElementById("alertedContent").value = "getDirectory error: " + error.code;
 };
 
 window.resolveLocalFileSystemURL(cordova.file.dataDirectory, dirEntry, dirError);
 
 //alert (cordova.file.applicationDirectory);
-  
+  		
     	playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
     	//playAudio("file:///android_assets/www/tones/rs//Daybreak.mp3");
 
