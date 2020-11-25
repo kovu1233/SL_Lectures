@@ -17,6 +17,8 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
     	
+navigator.notification.alert("test");
+
     var dirEntry = function (entry) {
     var dirReader = entry.createReader();
     dirReader.readEntries(
@@ -38,13 +40,13 @@ var app = {
 //test
         },
         function (error) {
-            alert("readEntries error: " + error.code);
+            navigator.notification.alert("readEntries error: " + error.code);
         }
     );
 };
 
 var dirError = function (error) {
-    alert("getDirectory error: " + error.code);
+    navigator.notification.alert("getDirectory error: " + error.code);
 };
 
 window.resolveLocalFileSystemURL(cordova.file.dataDirectory, dirEntry, dirError);
