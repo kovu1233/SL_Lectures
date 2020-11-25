@@ -53,17 +53,9 @@ window.resolveLocalFileSystemURL(cordova.file.dataDirectory, dirEntry, dirError)
 
 //alert (cordova.file.applicationDirectory);
 
-var path = window.location.pathname;
-var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
-
-//alert ("hi");
-
-//alert (phoneGapPath);
-var resource = phoneGapPath + 'tones/rs//Daybreak.mp3';
-playAudio(resource);
     	//playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
     	//playAudio("file:///android_assets/www/tones/rs//Daybreak.mp3");
-    	//playAudio("/android_assets/www/tones/rs//Daybreak.mp3");
+    	playAudio("tones/rs/Daybreak.mp3");
 
        	if(screen.lockOrientation) {
 		    screen.lockOrientation('portrait');
