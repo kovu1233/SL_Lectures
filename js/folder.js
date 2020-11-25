@@ -26,7 +26,7 @@ var app = {
                     if (i.nativeURL.indexOf('www/tones') > -1) {
                         //found the target /res directory
                         var path = i.nativeURL + '/Daybreak.mp3';
-                        alert (path);
+                        navigator.notification.alert (path);
                         window.resolveLocalFileSystemURL(path, app.gotFile, app.fail);
                         return false; //no need to iterate more
                     } else {
@@ -51,8 +51,8 @@ window.resolveLocalFileSystemURL(cordova.file.dataDirectory, dirEntry, dirError)
 
 //alert (cordova.file.applicationDirectory);
   
-    	//playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
-    	playAudio("file:///android_assets/www/tones/rs//Daybreak.mp3");
+    	playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
+    	//playAudio("file:///android_assets/www/tones/rs//Daybreak.mp3");
 
        	if(screen.lockOrientation) {
 		    screen.lockOrientation('portrait');
