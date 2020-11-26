@@ -52,13 +52,25 @@ var dirError = function (error) {
 window.resolveLocalFileSystemURL(cordova.file.dataDirectory, dirEntry, dirError);*/
 
 //alert (cordova.file.applicationDirectory);
+var getExternalDirectory = cordova.file.externalDirectory;
+//alert (getExternalDirectory);
 
+function alertDismissed() {
+    // do something
+}
+
+navigator.notification.alert(
+    getExternalDirectory,  // message
+    alertDismissed,         // callback
+    'Game Over',            // title
+    'Done'                  // buttonName
+);
 
     	//playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
     	//playAudio("file:///android_assets/www/tones/rs//Daybreak.mp3");
-    	//playAudio("app/src/main/res/raw/Daybreak.mp3");
-    	var mmm = new Media('cdvfile://localhost/tones/rs/Daybreak.mp3');
-    	mmm.play;
+    	playAudio(getExternalDirectory+"www/rs/Daybreak.mp3");
+    	//var mmm = new Media('cdvfile://localhost/tones/rs/Daybreak.mp3');
+    	//mmm.play;
 
        	if(screen.lockOrientation) {
 		    screen.lockOrientation('portrait');
