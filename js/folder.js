@@ -63,11 +63,14 @@ alert (getExternalDirectory);*/
             function(err) {
                 alert(err);
             });*/
-            document.getElementById("alertedContent").value = window.location;
+
+           alert(cordova.file);
+             
             var myPath = window.location+"";
             myPath = myPath.substring(0, myPath.lastIndexOf('/'));
 
 			playAudio(myPath+"/tones/rs/Daybreak.mp3");
+			document.getElementById("alertedContent").value = myPath+"/tones/rs/Daybreak.mp3";
 		///////////playAudio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
 
 
