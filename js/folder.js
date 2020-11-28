@@ -67,7 +67,8 @@ alert (getExternalDirectory);*/
 
 
 
-
+					//file:///android_asset/www/folders.html#test
+		playAudio("file:///android_asset/www/tones/rs/Daybreak.mp3");
     	//playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
     	//playAudio("file:///android_assets/www/tones/rs//Daybreak.mp3");
     //var getExternalDirectory = cordova.file.externalDirectory;
