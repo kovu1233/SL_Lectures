@@ -69,6 +69,9 @@ alert (getExternalDirectory);*/
 
 					//file:///android_asset/www/folders.html#test
 		playAudio("file:///android_asset/www/tones/rs/Daybreak.mp3");
+		//////////playAudio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+
+
     	//playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
     	//playAudio("file:///android_assets/www/tones/rs//Daybreak.mp3");
     //var getExternalDirectory = cordova.file.externalDirectory;
@@ -220,7 +223,8 @@ function playAudio(src) {
     				}
     			},
     			function(e){
-    				alert("Error getting pos=" + e);
+    				//alert("Error getting pos=" + e);
+    				document.getElementById("alertedContent").value = "Error getting pos=" + e;
     				setAudioPosition("Error: " + e);
     			}
     	);
@@ -248,12 +252,14 @@ function stopAudio(){
 }
 
 function onSuccess(){
-	alert("playAudio():Audio Success");
+	//alert("playAudio():Audio Success");
+	document.getElementById("alertedContent").value = "playAudio():Audio Success";
 }
 
 function onError(error){
-	alert("code: " + error.code + "\n" +
-		"message: " + error.message + "\n");
+	//alert("code: " + error.code + "\n" +
+	//	"message: " + error.message + "\n");
+	document.getElementById("alertedContent").value = "code: " + error.code + "\n" + "message: " + error.message + "\n";
 }
 function setAudioPosition(position){
 	document.getElementById("audio_position").innerHTML = position;
