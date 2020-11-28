@@ -64,12 +64,11 @@ alert (getExternalDirectory);*/
                 alert(err);
             });*/
             document.getElementById("alertedContent").value = window.location;
+            var myPath = window.location+"";
+            myPath = myPath.substring(0, myPath.lastIndexOf('/'));
 
-
-
-					//file:///android_asset/www/folders.html#test
-		playAudio("file:///android_asset/www/tones/rs/Daybreak.mp3");
-		//////////playAudio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+			playAudio(myPath+"/tones/rs/Daybreak.mp3");
+		///////////playAudio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
 
 
     	//playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
