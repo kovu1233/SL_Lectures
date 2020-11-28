@@ -64,7 +64,7 @@ alert (getExternalDirectory);*/
                 alert(err);
             });*/
 
-           alert(cordova.file);
+           //alert(cordova.file);
              
             var myPath = window.location+"";
             myPath = myPath.substring(0, myPath.lastIndexOf('/'));
