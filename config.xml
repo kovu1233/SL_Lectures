@@ -21,7 +21,7 @@
     <plugin name="cordova-plugin-media" source="npm" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.7.1" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.5" />
-    <plugin name="cordova-plugin-file" source="npm" spec="~4.3.3"/>
+    <plugin name="cordova-plugin-file" source="npm" />
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~2.0.2" />
     <plugin name="cordova-plugin-whitelist" />
 
