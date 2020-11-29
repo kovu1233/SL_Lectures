@@ -1,13 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.simpleAlarmClock" version="1.0.0" versionCode="100" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.simpleAlarmClock" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Simple_Alarm_Clock</name>
     <description>This is a simple alarm clock application</description>
     <author email="yousif2@hotmail.com" href="https://www.linkedin.com/in/yousif-al-imamy-87a80361/">
         PhoneGap Team
     </author>
 
-
-    <preference name="StatusBarOverlaysWebView" value="false" />
+    
     <preference name="fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="orientation" value="portrait" />
