@@ -109,4 +109,8 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+
+    <feature name="Media">
+	<param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+    </feature>
 </widget>

@@ -26,15 +26,15 @@
 		
 		<div id="alarmStatus"></div>
 
-		<a href="#" class="btn large" onclick="playAudio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');">Play Audio</a><br>
+		<!--<a href="#" class="btn large" onclick="playAudio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');">Play Audio</a><br>
 		<a id="btnPause" href="#" class="btn large" onclick="pauseAudio(0);">Pause Playing Audio</a><br>
 		<a id="btnStop" href="#" class="btn large" onclick="stopAudio();">Pause Playing Audio</a><br>
 
-		<p id="audio_position"></p>
+		<p id="audio_position"></p>-->
 
-		<audio controls>
-      <source :src="'assets/www/tones/rs/Daybreak.mp3'" type="audio/mpeg"/>
-</audio>
+		<audio id="successSound" src="tones/rs/Daybreak.mp3" type="audio/mpeg"></audio>
+		<button onclick="playMaAudio('successSound');">Play successSound local</button>
+
 
 
 
@@ -229,7 +229,7 @@
 				</table>
 			</section>
 
-			<audio id="innerAudio"></audio>
+			<!--<audio id="innerAudio"></audio>-->
 
 			</section>
 		</div>

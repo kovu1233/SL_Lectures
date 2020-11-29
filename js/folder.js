@@ -72,7 +72,9 @@ alert (getExternalDirectory);*/
 			playAudio(myPath+"/tones/rs/Daybreak.mp3");
 			document.getElementById("alertedContent").value = myPath+"/tones/rs/Daybreak.mp3";*/
 
-		playAudio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+		//playAudio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+
+
 
 
     	//playAudio("file:///data/user/0/com.adobe.phonegap.app/files/phonegapdevapp/www/tones/rs//Daybreak.mp3");
@@ -266,6 +268,18 @@ function onError(error){
 }
 function setAudioPosition(position){
 	document.getElementById("audio_position").innerHTML = position;
+}
+
+
+function playMaAudio(id){
+	var audioElement = document.getElementById(id);
+	var url = audioElement.getAttribute('src');
+	var my_media1 = new Media('/android_asset/www/' + url,
+		function(){ console.log("playAudio():Audio Success"); },
+		function(err){ console.log("playAudio():Audio Error: " + err); }
+	);
+	my_media1.play();
+
 }
 
 
