@@ -1,31 +1,33 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.simpleAlarmClock" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.simpleAlarmClock" version="1.0.0" versionCode="100" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Simple_Alarm_Clock</name>
-    <description>
-        This is a simple alarm clock application
-    </description>
+    <description>This is a simple alarm clock application</description>
     <author email="yousif2@hotmail.com" href="https://www.linkedin.com/in/yousif-al-imamy-87a80361/">
         PhoneGap Team
     </author>
-    <content src="index.html" />
+
+    <preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="15" />
-    <preference name="android-targetSdkVersion" value="23" />
     <preference name="orientation" value="portrait" />
     <preference name="useBrowserHistory" value="false" />
+    <preference value="none" name="permissions" />
 
-
-    <plugin name="cordova-plugin-screen-orientation" source="npm" spec="~3.0.2" />
-    <plugin name="cordova-plugin-device" source="npm" spec="~1.1.6" />
+    <plugin name="cordova-plugin-screen-orientation" source="npm" />
+    <plugin name="cordova-plugin-device" source="npm" />
     <plugin name="cordova-plugin-media" source="npm" />
-    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.7.1" />
-    <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.5" />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" />
+    <plugin name="cordova-plugin-vibration" source="npm" />
     <plugin name="cordova-plugin-file" source="npm" />
-    <plugin name="cordova-plugin-dialogs" source="npm" spec="~2.0.2" />
-    <plugin name="cordova-plugin-camera" srouce="npm" spec="~2.1.1" />
+    <plugin name="cordova-plugin-dialogs" source="npm" />
+    <plugin name="cordova-plugin-camera" srouce="npm" />
     <plugin name="cordova-plugin-whitelist" />
 
     <platform name="android">
+	<plugin name="cordova-android-support-gradle-release" source="npm">
+		    <variable name="ANDROID_SUPPORT_VERSION" value="28.0.0" />
+	</plugin>
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
@@ -95,20 +97,13 @@
         <icon height="360" platform="windows" src="www/res/icon/windows/Wide310x150Logo.scale-240.png" width="744" />
         <splash height="1920" platform="windows" src="www/res/screen/windows/SplashScreenPhone.scale-240.png" width="1152" />
     </platform>
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <access origin="*" subdomains="true" />
+    <allow-intent target="_blank" target="_blank" href="http://*/*" />
+    <allow-intent target="_blank" target="_blank" href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <platform name="android">
-        <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
 
     <feature name="Media">
 	<param name="android-package" value="org.apache.cordova.media.AudioHandler" />
