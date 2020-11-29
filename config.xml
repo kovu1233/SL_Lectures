@@ -25,9 +25,7 @@
     <plugin name="cordova-plugin-whitelist" />
 
     <platform name="android">
-	<plugin name="cordova-android-support-gradle-release" source="npm">
-		    <variable name="ANDROID_SUPPORT_VERSION" value="28.0.0" />
-	</plugin>
+
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
