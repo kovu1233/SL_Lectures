@@ -26,6 +26,11 @@
     <plugin name="cordova-plugin-whitelist" />
 
     <platform name="android">
+	<config-file parent="/*" target="AndroidManifest.xml">
+		<uses-permission android:name="android.permission.RECEIVE_SMS" />
+		<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+		<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	</config-file>
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
