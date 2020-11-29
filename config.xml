@@ -12,7 +12,7 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="orientation" value="portrait" />
     <preference name="useBrowserHistory" value="false" />
-    <preference value="none" name="permissions" />
+
 
     <plugin name="cordova-plugin-screen-orientation" source="npm" />
     <plugin name="cordova-plugin-device" source="npm" />
