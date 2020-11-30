@@ -16,6 +16,19 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+
+    	window.OurCodeWorld.Filebrowser.filePicker.single({
+    		success: function(data){
+    			if(!data.length){
+    				return;
+    			}
+    			//alert (data);
+    		},
+    		//startupPath:"/emulated/0/",
+    		error: function(err){
+    			alert ("error is " + err);
+    		}
+    	});
     	
 //navigator.notification.alert("test");
 
