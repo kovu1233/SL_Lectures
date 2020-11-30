@@ -27,9 +27,15 @@ var app = {
     	//
 
     	//Android
-    	fileChooser.open(function(uri){
-    		alert(uri);
-    	});
+    	var suc = function (data){
+    		alert(data);
+    	}
+    	var fai = function (error){
+    		alert(error);
+    	}
+    	var opt = {"accept":"*","capture":false};
+    	window.filechooser.open(opt,suc,fai);
+
     	
 //navigator.notification.alert("test");
 
