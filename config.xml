@@ -24,7 +24,7 @@
     <plugin name="cordova-plugin-dialogs" source="npm" />
     <plugin name="cordova-plugin-camera" srouce="npm" />
     <plugin name="cordova-plugin-whitelist" />
-    <plugin name="com.ourcodeworld.plugins.Filebrowser" />
+    <plugin name="cordova-plugin-filepicker" />
 
     <platform name="android">
         <icon density="ldpi" src="res/icon/android/drawable-ldpi-icon.png" />
