@@ -17,10 +17,19 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 
-    	FilePicker.pickFile(successCallback,errorCallback);
+    	//IOS
+    	/*FilePicker.pickFile(successCallback,errorCallback);
     	function successCallback(path){
     		alert("You picked this file: " + path);
     	}
+
+    	FilePicker.pickFile*/
+    	//
+
+    	//Android
+    	fileChooser.open(function(uri){
+    		alert(uri);
+    	});
     	
 //navigator.notification.alert("test");
 
