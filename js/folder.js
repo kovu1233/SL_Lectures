@@ -17,18 +17,10 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 
-    	window.OurCodeWorld.Filebrowser.filePicker.single({
-    		success: function(data){
-    			if(!data.length){
-    				return;
-    			}
-    			//alert (data);
-    		},
-    		//startupPath:"/emulated/0/",
-    		error: function(err){
-    			alert ("error is " + err);
-    		}
-    	});
+    	FilePicker.pickFile(successCallback,errorCallback);
+    	function successCallback(path){
+    		alert("You picked this file: " + path);
+    	}
     	
 //navigator.notification.alert("test");
 
