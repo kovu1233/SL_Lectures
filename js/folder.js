@@ -46,12 +46,12 @@ var app = {
 	          				//document.getElementById("alertedContent").value = entries;
 	          				var fileStr = "";
 	          				for (var i = 0; i < entries.length; i++){
-	          					if (entries[i].isDirectory === true){
-	          						document.getElementById("alertedContent").value = entries[i];
-	          					}
-	          					else{
+	          					//if (entries[i].isDirectory === true){
+	          					//	document.getElementById("alertedContent").value = entries[i];
+	          					//}
+	          					//else{
 	          						fileStr += (entries[i].fullPath + "//");
-	          					}
+	          					//}
 	          				}
 	          				document.getElementById("alertedContent").value = fileStr;
 	        			},
