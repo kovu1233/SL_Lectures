@@ -43,14 +43,24 @@ var app = {
 	      			var reader = fileSystem.createReader();
 	      			reader.readEntries(
 	        			function (entries) {
-	          				document.getElementById("alertedContent").value=(entries);
+	          				//document.getElementById("alertedContent").value = entries;
+	          				var fileStr = "";
+	          				for (var i = 0; i < entries.length; i++){
+	          					if (entries[i].isDirectory === true){
+	          						document.getElementById("alertedContent").value = entries[i];
+	          					}
+	          					else{
+	          						fileStr += (entries[i].fullPath + "//");
+	          					}
+	          				}
+	          				document.getElementById("alertedContent").value = fileStr;
 	        			},
 	        			function (err) {
-	          				document.getElementById("alertedContent").value=(err);
+	          				document.getElementById("alertedContent").value = err;
 	        			}
 	      			);
 	    		}, function (err) {
-	      			document.getElementById("alertedContent").value=(err);
+	      			document.getElementById("alertedContent").value = err;
 	    		}
   			);
 		}
