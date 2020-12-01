@@ -66,7 +66,8 @@ var app = {
 		}
 
 //example: list of www/audio/ folder in cordova/ionic app.
-listDir(cordova.file.applicationDirectory + "www/tones/rs/");
+//listDir(cordova.file.applicationDirectory + "www/tones/rs/");
+listDir(cordova.file.applicationStorageDirectory);
 
     	
 //navigator.notification.alert("test");
