@@ -26,12 +26,10 @@
     <plugin name="cordova-plugin-whitelist" />
     <plugin name="cordova-plugin-filepicker" />
     <plugin name="cordova-filechooser" />
-    <plugin name="cordova.plugins.diagnostic" />
 
-    <config-file platform="android" parent="/manifest" mode="replace">
-    	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    </config-file>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
 
     <platform name="android">
         <icon density="ldpi" src="res/icon/android/drawable-ldpi-icon.png" />
