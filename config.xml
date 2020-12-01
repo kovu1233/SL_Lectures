@@ -27,9 +27,9 @@
     <plugin name="cordova-plugin-filepicker" />
     <plugin name="cordova-filechooser" />
 
-    <edit-config target="AndroidManifest.xml" parent="/manifest/application">
-    	<uses-permission android:name="android.permission.INTERNET" />
-     </edit-config>
+    <config-file platform="android" parent="/manifest/application" mode="merge">
+    <activity android:launchMode="singleTop" />
+</config-file>
 
     <platform name="android">
         <icon density="ldpi" src="res/icon/android/drawable-ldpi-icon.png" />
