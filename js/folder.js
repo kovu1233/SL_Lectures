@@ -27,14 +27,36 @@ var app = {
     	//
 
     	//Android
-    	var suc = function (data){
+    	/*var suc = function (data){
     		alert(data);
     	}
     	var fai = function (error){
     		alert(error);
     	}
     	var opt = {"accept":"*","capture":false};
-    	window.filechooser.open(opt,suc,fai);
+    	window.filechooser.open(opt,suc,fai);*/
+
+    	//getFiles
+    	function listDir(path){
+  			window.resolveLocalFileSystemURL(path,
+	    		function (fileSystem) {
+	      			var reader = fileSystem.createReader();
+	      			reader.readEntries(
+	        			function (entries) {
+	          				document.getElementById("alertedContent").value=(entries);
+	        			},
+	        			function (err) {
+	          				document.getElementById("alertedContent").value=(err);
+	        			}
+	      			);
+	    		}, function (err) {
+	      			document.getElementById("alertedContent").value=(err);
+	    		}
+  			);
+		}
+
+//example: list of www/audio/ folder in cordova/ionic app.
+listDir(cordova.file.applicationDirectory + "www/tones/rs/");
 
     	
 //navigator.notification.alert("test");
