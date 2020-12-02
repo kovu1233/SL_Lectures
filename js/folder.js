@@ -65,11 +65,14 @@ var app = {
 		                   //fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
 		                   ////////fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
 		                	//if (entries[i].substr(entries[i].length - 3) == "mp3" || entries[i].substr(entries[i].length - 3) == "ogg"){
-		                		var ext = entries[i].fullPath+"";
-		                		ext = ext.substr(ext.length - 3);
-		                		//if (ext == "mp3" || ext == "ogg"){
-									fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+ext+'</td></tr>');
-		                   		//}
+		                		var pathString = entries[i].fullPath+"";
+		                		var ext = pathString.substr(pathString.length - 3);
+
+		                		if (ext == "mp3" || ext == "ogg"){
+		                			var pathSplitter = pathString.split("/");
+		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
+									fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPath+'</td></tr>');
+		                   		}
 		                   	index++;
 		                }
 		            }
