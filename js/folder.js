@@ -65,7 +65,8 @@ var app = {
 		                   //fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
 		                   ////////fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
 		                	//if (entries[i].substr(entries[i].length - 3) == "mp3" || entries[i].substr(entries[i].length - 3) == "ogg"){
-		                		var ext = entries[i].substr(-3);
+		                		var ext = entries[i]+"";
+		                		ext = ext.substr(ext.length - 3);
 								fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+ext+'</td></tr>');		                   	
 		                   		index++;
 		                   	//}
