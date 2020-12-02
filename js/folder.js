@@ -57,6 +57,7 @@ var app = {
 		        function (entries) {
 		            var fileStr = "";
 		            var i;
+		            var z;
 		            var lastSlashInPathStore = [];
 		            for (i = 0; i < entries.length; i++) {
 		                if (entries[i].isDirectory === true) {
@@ -73,13 +74,17 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
-		                			//for (z = 0; z < lastSlashInPathStore.length; z++){
-		                				//if (lastSlashInPathStore[z] != lastSlashInPath){
-		                				//	lastSlashInPathStore.push(lastSlashInPath);
-		                					var lastSlashInPathWOExt = lastSlashInPath.substr(lastSlashInPath.length - 4);
+		                			if (lastSlashInPathStore != undefined || lastSlashInPathStore.length != 0){
+		                				lastSlashInPathStore.push(lastSlashInPath);
+		                			}
+		                			
+		                			for (z = 0; z < lastSlashInPathStore.length; z++){
+		                				if (lastSlashInPathStore[z] != lastSlashInPath){
+		                					lastSlashInPathStore.push(lastSlashInPath);
+		                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 		                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
-		                				//}
-		                			//}
+		                				}
+		                			}
 		                   		}
 		                   	index++;
 		                }
