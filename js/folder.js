@@ -63,8 +63,11 @@ var app = {
 		                    addFileEntry(entries[i]);
 		                } else {
 		                   //fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
-		                   fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
-		                   index++;
+		                   ////////fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
+		                	if (entries[i].substr(entries[i].length - 3) == "mp3" || entries[i].substr(entries[i].length - 3) == "ogg"){
+								fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');		                   	
+		                   		index++;
+		                   	}
 		                }
 		            }
 		            // add this directory's contents to the status
