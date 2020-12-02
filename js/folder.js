@@ -62,7 +62,8 @@ var app = {
 		                    // Recursive -- call back into this subdirectory
 		                    addFileEntry(entries[i]);
 		                } else {
-		                   fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
+		                   //fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
+		                   fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
 		                   index++;
 		                }
 		            }
@@ -70,17 +71,18 @@ var app = {
 		            statusStr += fileStr;
 		            // display the file list in #results
 		            if (statusStr.length > 0) {
-		                $("#results").html(statusStr);
+		                //$("#results").html(statusStr);
+		                document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + fileStr;
 		            } 
 		        },
 		        function (error) {
-		            console.log("readEntries error: " + error.code);
+		            //console.log("readEntries error: " + error.code);
 		            statusStr += "<p>readEntries error: " + error.code + "</p>";
 		        }
 		    );
 		};
 		var addError = function (error) {
-		    console.log("getDirectory error: " + error.code);
+		    //console.log("getDirectory error: " + error.code);
 		    statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
 		};
 		for (i = 0; i < localURLs.length; i++) {
