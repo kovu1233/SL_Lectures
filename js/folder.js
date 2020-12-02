@@ -57,6 +57,7 @@ var app = {
 		        function (entries) {
 		            var fileStr = "";
 		            var i;
+		            var lastSlashInPathStore = [];
 		            for (i = 0; i < entries.length; i++) {
 		                if (entries[i].isDirectory === true) {
 		                    // Recursive -- call back into this subdirectory
@@ -71,7 +72,14 @@ var app = {
 		                		if (ext == "mp3" || ext == "ogg"){
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
-									fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPath+'</td></tr>');
+		                			
+		                			for (z = 0; z < lastSlashInPathStore.length; z++){
+		                				if (lastSlashInPathStore[z] != lastSlashInPath){
+		                					lastSlashInPathStore.push(lastSlashInPath);
+		                					var lastSlashInPathWOExt = lastSlashInPath.substr(lastSlashInPath - 4);
+		                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
+		                				}
+		                			}
 		                   		}
 		                   	index++;
 		                }
