@@ -47,7 +47,49 @@ var app = {
 		    cordova.file.sharedDirectory,
 		    cordova.file.syncedDataDirectory
     	];
-    	function listDir(path){
+
+    	var index = 0;
+		var i;
+		var statusStr = "";
+		var addFileEntry = function (entry) {
+		    var dirReader = entry.createReader();
+		    dirReader.readEntries(
+		        function (entries) {
+		            var fileStr = "";
+		            var i;
+		            for (i = 0; i < entries.length; i++) {
+		                if (entries[i].isDirectory === true) {
+		                    // Recursive -- call back into this subdirectory
+		                    addFileEntry(entries[i]);
+		                } else {
+		                   fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
+		                   index++;
+		                }
+		            }
+		            // add this directory's contents to the status
+		            statusStr += fileStr;
+		            // display the file list in #results
+		            if (statusStr.length > 0) {
+		                $("#results").html(statusStr);
+		            } 
+		        },
+		        function (error) {
+		            console.log("readEntries error: " + error.code);
+		            statusStr += "<p>readEntries error: " + error.code + "</p>";
+		        }
+		    );
+		};
+		var addError = function (error) {
+		    console.log("getDirectory error: " + error.code);
+		    statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
+		};
+		for (i = 0; i < localURLs.length; i++) {
+		    if (localURLs[i] === null || localURLs[i].length === 0) {
+		        continue; // skip blank / non-existent paths for this platform
+		    }
+		    window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
+		}
+    	/*function listDir(path){
   			window.resolveLocalFileSystemURL(path,
 	    		function (fileSystem) {
 	      			var reader = fileSystem.createReader();
@@ -75,12 +117,12 @@ var app = {
 	      			document.getElementById("alertedContent").value = err;
 	    		}
   			);
-		}
+		}*/
 
 //example: list of www/audio/ folder in cordova/ionic app.
 //listDir(cordova.file.applicationDirectory + "www/tones/rs/");
 //for (i = 0; i < localURLs.length; i++) {
-	listDir(cordova.file.externalRootDirectory);
+	///////////////listDir(cordova.file.externalRootDirectory);
 //}
 
     	
