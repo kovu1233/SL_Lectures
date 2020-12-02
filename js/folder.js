@@ -58,7 +58,7 @@ var app = {
 		            var fileStr = "";
 		            var i;
 		            var z;
-		            var lastSlashInPathStore = [];
+		            var lastSlashInPathStore = ['kgfdlhtr'];
 		            for (i = 0; i < entries.length; i++) {
 		                if (entries[i].isDirectory === true) {
 		                    // Recursive -- call back into this subdirectory
@@ -79,11 +79,11 @@ var app = {
 		                			}
 		                			
 		                			for (z = 0; z < lastSlashInPathStore.length; z++){
-		                				if (lastSlashInPathStore[z] != lastSlashInPath){
+		                				//if (lastSlashInPathStore[z] != lastSlashInPath){
 		                					lastSlashInPathStore.push(lastSlashInPath);
 		                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 		                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
-		                				}
+		                				//}
 		                			}
 		                   		}
 		                   	index++;
