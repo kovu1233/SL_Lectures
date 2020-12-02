@@ -72,13 +72,14 @@ var app = {
 		            // display the file list in #results
 		            if (statusStr.length > 0) {
 		                //$("#results").html(statusStr);
-		                document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + fileStr;
+		                document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		            } 
 		        },
 		        function (error) {
 		            //console.log("readEntries error: " + error.code);
 		            //statusStr += "<p>readEntries error: " + error.code + "</p>";
 		            statusStr += '<tr><td class="tabs1">REE: '+error.code+'</td></tr>';
+		            //document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		        }
 		    );
 		};
@@ -86,6 +87,7 @@ var app = {
 		    //console.log("getDirectory error: " + error.code);
 		    //statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
 		    statusStr += '<tr><td class="tabs1">GDE: '+error.code+','+error.message+'</td></tr>';
+		    //document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		};
 		for (i = 0; i < localURLs.length; i++) {
 		    if (localURLs[i] === null || localURLs[i].length === 0) {
