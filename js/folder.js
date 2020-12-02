@@ -68,7 +68,7 @@ var app = {
 
 //example: list of www/audio/ folder in cordova/ionic app.
 //listDir(cordova.file.applicationDirectory + "www/tones/rs/");
-///////////listDir(cordova.file.externalRootDirectory);
+listDir(cordova.file.externalRootDirectory, "");
 
     	
 //navigator.notification.alert("test");
@@ -165,6 +165,16 @@ folderName = folderName.split('#')[1];
 folderName = folderName.replace("%20", " ");
 document.getElementById("FolderAlarmsTitle").innerHTML = folderName;
 
+
+function kkmTest(){
+	var fileStr = "";
+	for (var i = 0; i < 10; i++){
+		//alert ("ok");
+		fileStr += '<tr><td class="tabs1" id="'+i+'" onclick="AlarmsCFile(this.innerHTML);">'+i+i+'</td></tr>';
+	}
+	//alert (fileStr);
+	document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + fileStr;
+}
 /*alert ("selected days are: "+localStorage.getItem(folderName+keySeek+"daySelect")+newLine
 		+"Alarm Timing is: "+localStorage.getItem(folderName+keySeek+"alarmTiming")+newLine
 		+"Alarm Name is: "+localStorage.getItem(folderName+keySeek+"alarmName")+newLine
@@ -720,7 +730,9 @@ function AlarmsFolder(x){
 	document.getElementById(x+"01").style.display = "block";
 	
 	if(x == "cs"){
-		listDir(cordova.file.externalRootDirectory, "");
+		//alert ("here");
+		//kkmTest();
+		//listDir(cordova.file.externalRootDirectory, "");
 	}
 }
 
