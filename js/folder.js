@@ -60,9 +60,9 @@ var app = {
 	          					//	document.getElementById("alertedContent").value = entries[i];
 	          						listDir(cordova.file.externalRootDirectory + entries[i]);
 	          					}
-	          					//else{
+	          					else{
 	          						fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
-	          					//}
+	          					}
 	          				}
 	          				/////////document.getElementById("alertedContent").value = fileStr;
 	          				document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + fileStr;
