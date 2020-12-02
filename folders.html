@@ -110,6 +110,15 @@
 		<div class="setFolderName" id="modifyAlarm"></div>
 		<div class="setFolderName" id="setAlarmName"></div>
 		<div class="pickAlarm" id="pickAlarm" style="display: none;">
+
+			<section id="cs01" style="display: none;">
+				<table border="0" width="100%" id="cs02">
+					<tr>
+						<td class="tabs" style="font-weight: bolder; background-color: #000;font-style: normal;"><u>CUSTOM TONES</u></td>
+					</tr>
+				</table>
+			</section>
+
 			<section id="alarmTones">
 				<table border="0" width="100%">
 					<tr>
@@ -126,6 +135,9 @@
 					</tr>
 					<tr>
 						<td class="tabs" id="gn" onclick="AlarmsFolder(this.id);">Gentle Nudge</td>
+					</tr>
+					<tr>
+						<td class="tabs" id="cs" style="color:#9999EE; font-weight:bolder;" onclick="AlarmsFolder(this.id);">Custom Tone</td>
 					</tr>
 					<tr>
 						<td class="cancelAlarmTone" onclick="cancelAlarmTone();">Finished</td>

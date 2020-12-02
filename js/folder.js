@@ -37,7 +37,7 @@ var app = {
     	window.filechooser.open(opt,suc,fai);*/
 
     	//getFiles
-    	function listDir(path){
+    	function listDir(path, x){
   			window.resolveLocalFileSystemURL(path,
 	    		function (fileSystem) {
 	      			var reader = fileSystem.createReader();
@@ -50,10 +50,11 @@ var app = {
 	          					//	document.getElementById("alertedContent").value = entries[i];
 	          					//}
 	          					//else{
-	          						fileStr += (entries[i].fullPath + "//");
+	          						fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
 	          					//}
 	          				}
-	          				document.getElementById("alertedContent").value = fileStr;
+	          				/////////document.getElementById("alertedContent").value = fileStr;
+	          				document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + fileStr;
 	        			},
 	        			function (err) {
 	          				document.getElementById("alertedContent").value = err;
@@ -67,7 +68,7 @@ var app = {
 
 //example: list of www/audio/ folder in cordova/ionic app.
 //listDir(cordova.file.applicationDirectory + "www/tones/rs/");
-listDir(cordova.file.externalRootDirectory);
+///////////listDir(cordova.file.externalRootDirectory);
 
     	
 //navigator.notification.alert("test");
@@ -717,6 +718,10 @@ function cancelAlarmTone(){
 function AlarmsFolder(x){
 	document.getElementById("alarmTones").style.display = "none";
 	document.getElementById(x+"01").style.display = "block";
+	
+	if(x == "cs"){
+		listDir(cordova.file.externalRootDirectory, "");
+	}
 }
 
 function backToAlarmTone(x){
