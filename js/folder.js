@@ -76,7 +76,8 @@ var app = {
 		                			//for (z = 0; z < lastSlashInPathStore.length; z++){
 		                				//if (lastSlashInPathStore[z] != lastSlashInPath){
 		                				//	lastSlashInPathStore.push(lastSlashInPath);
-		                					var lastSlashInPathWOExt = lastSlashInPath.substr(lastSlashInPath - 4);
+		                					var lastSlashInPathWOExt = lastSlashInPath + "";
+		                					lastSlashInPathWOExt = lastSlashInPathWOExt.substr(lastSlashInPathWOExt - 4);
 		                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
 		                				//}
 		                			//}
