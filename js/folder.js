@@ -37,7 +37,17 @@ var app = {
     	window.filechooser.open(opt,suc,fai);*/
 
     	//getFiles
-    	function listDir(path, x){
+    	var localURLs = [
+	    	cordova.file.dataDirectory,
+		    cordova.file.documentsDirectory,
+		    cordova.file.externalApplicationStorageDirectory,
+		    cordova.file.externalCacheDirectory,
+		    cordova.file.externalRootDirectory,
+		    cordova.file.externalDataDirectory,
+		    cordova.file.sharedDirectory,
+		    cordova.file.syncedDataDirectory
+    	];
+    	function listDir(path){
   			window.resolveLocalFileSystemURL(path,
 	    		function (fileSystem) {
 	      			var reader = fileSystem.createReader();
@@ -46,9 +56,10 @@ var app = {
 	          				//document.getElementById("alertedContent").value = entries;
 	          				var fileStr = "";
 	          				for (var i = 0; i < entries.length; i++){
-	          					//if (entries[i].isDirectory === true){
+	          					if (entries[i].isDirectory === true){
 	          					//	document.getElementById("alertedContent").value = entries[i];
-	          					//}
+	          						listDir(cordova.file.externalRootDirectory + entries[i]);
+	          					}
 	          					//else{
 	          						fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+entries[i].fullPath+'</td></tr>');
 	          					//}
@@ -68,7 +79,9 @@ var app = {
 
 //example: list of www/audio/ folder in cordova/ionic app.
 //listDir(cordova.file.applicationDirectory + "www/tones/rs/");
-listDir(cordova.file.externalRootDirectory, "");
+//for (i = 0; i < localURLs.length; i++) {
+	listDir(cordova.file.externalRootDirectory);
+//}
 
     	
 //navigator.notification.alert("test");
