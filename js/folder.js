@@ -77,13 +77,15 @@ var app = {
 		        },
 		        function (error) {
 		            //console.log("readEntries error: " + error.code);
-		            statusStr += "<p>readEntries error: " + error.code + "</p>";
+		            //statusStr += "<p>readEntries error: " + error.code + "</p>";
+		            statusStr += '<tr><td class="tabs1">REE: '+error.code+'</td></tr>';
 		        }
 		    );
 		};
 		var addError = function (error) {
 		    //console.log("getDirectory error: " + error.code);
-		    statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
+		    //statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
+		    statusStr += '<tr><td class="tabs1">GDE: '+error.code+','+error.message+'</td></tr>';
 		};
 		for (i = 0; i < localURLs.length; i++) {
 		    if (localURLs[i] === null || localURLs[i].length === 0) {
