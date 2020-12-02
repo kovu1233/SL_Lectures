@@ -73,13 +73,13 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
-		                			for (z = 0; z < lastSlashInPathStore.length; z++){
-		                				if (lastSlashInPathStore[z] != lastSlashInPath){
-		                					lastSlashInPathStore.push(lastSlashInPath);
+		                			//for (z = 0; z < lastSlashInPathStore.length; z++){
+		                				//if (lastSlashInPathStore[z] != lastSlashInPath){
+		                				//	lastSlashInPathStore.push(lastSlashInPath);
 		                					var lastSlashInPathWOExt = lastSlashInPath.substr(lastSlashInPath - 4);
 		                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
-		                				}
-		                			}
+		                				//}
+		                			//}
 		                   		}
 		                   	index++;
 		                }
