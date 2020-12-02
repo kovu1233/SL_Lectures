@@ -58,7 +58,7 @@ var app = {
 		            var fileStr = "";
 		            var i;
 		            var z;
-		            var lastSlashInPathStore = "";
+		            var lastSlashInPathStore = [];
 		            for (i = 0; i < entries.length; i++) {
 		                if (entries[i].isDirectory === true) {
 		                    // Recursive -- call back into this subdirectory
@@ -75,7 +75,8 @@ var app = {
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
 	                				if (!lastSlashInPathStore.includes(lastSlashInPath)){
-	                					lastSlashInPathStore += lastSlashInPath;
+	                					//lastSlashInPathStore += lastSlashInPath;
+	                					lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
 	                				}
