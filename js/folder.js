@@ -67,9 +67,9 @@ var app = {
 		                	//if (entries[i].substr(entries[i].length - 3) == "mp3" || entries[i].substr(entries[i].length - 3) == "ogg"){
 		                		var ext = entries[i].fullPath+"";
 		                		ext = ext.substr(ext.length - 3);
-		                		if (ext == "mp3" || ext == "ogg"){
+		                		//if (ext == "mp3" || ext == "ogg"){
 									fileStr += ('<tr><td class="tabs1" id="'+entries[i]+'" onclick="AlarmsCFile(this.id);">'+ext+'</td></tr>');
-		                   		}
+		                   		//}
 		                   	index++;
 		                }
 		            }
