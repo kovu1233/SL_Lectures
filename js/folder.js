@@ -77,7 +77,7 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
-	                				fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
+	                				fileStr += ('<tr><td class="tabs2" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
 		                   		}
 		                   	index++;
 		                }
@@ -93,7 +93,7 @@ var app = {
 		        function (error) {
 		            //console.log("readEntries error: " + error.code);
 		            //statusStr += "<p>readEntries error: " + error.code + "</p>";
-		            statusStr += '<tr><td class="tabs1">REE: '+error.code+'</td></tr>';
+		            statusStr += '<tr><td class="tabs2">REE: '+error.code+'</td></tr>';
 		            //document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		        }
 		    );
@@ -101,7 +101,7 @@ var app = {
 		var addError = function (error) {
 		    //console.log("getDirectory error: " + error.code);
 		    //statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
-		    statusStr += '<tr><td class="tabs1">GDE: '+error.code+','+error.message+'</td></tr>';
+		    statusStr += '<tr><td class="tabs2">GDE: '+error.code+','+error.message+'</td></tr>';
 		    //document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		};
 		for (i = 0; i < localURLs.length; i++) {
@@ -798,6 +798,15 @@ function AlarmsFolder(x){
 	document.getElementById(x+"01").style.display = "block";
 	
 	if(x == "cs"){
+	
+	    const st = new Set();
+	    for (const div of document.querySelectorAll('.tabs2')) {
+	    	if (st.has(div.textContent.trim())) {
+	        	div.parentNode.removeChild(div);
+	        }
+	        st.add(div.textContent.trim());
+	    }
+
 		//alert ("here");
 		//kkmTest();
 		//listDir(cordova.file.externalRootDirectory, "");
@@ -836,7 +845,7 @@ function AlarmsFile(x,y){
 }
 
 function AlarmsCFile(x){
-	document.getElementById("alertedContent").value = x;
+	document.getElementById("testMeCS").value = x;
 }
 
 

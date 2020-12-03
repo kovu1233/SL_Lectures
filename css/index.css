@@ -367,6 +367,14 @@ input::-webkit-inner-spin-button {
 	font-size: 80%;
 }
 
+.tabs2{
+	height: 60px;
+	background-color: #222;
+	font-style: italic;
+	border: none;
+	font-size: 80%;
+}
+
 .buttonGrey{
 	box-shadow: 3px 4px 0px 0px #899599;
 	background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
