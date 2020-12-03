@@ -74,7 +74,7 @@ var app = {
 
 		                		if (ext == "mp3" || ext == "ogg"){
 		                			var pathSplitter = pathString.split("/");
-		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
+		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1]+"";
 		                			
 	                				if (!lastSlashInPathStore.includes(lastSlashInPath)){
 	                					lastSlashInPathStore += lastSlashInPath+"";
