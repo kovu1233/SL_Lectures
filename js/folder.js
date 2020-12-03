@@ -52,6 +52,7 @@ var app = {
 		var i;
 		var statusStr = "";
 		var lastSlashInPathStore = "";
+		localStorage.setItem("savedTonesList", "");
 
 		var addFileEntry = function (entry) {
 		    var dirReader = entry.createReader();
@@ -74,10 +75,11 @@ var app = {
 
 		                		if (ext == "mp3" || ext == "ogg"){
 		                			var pathSplitter = pathString.split("/");
-		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1]+"";
+		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
+		                			lastSlashInPathStore = localStorage.getItem("savedTonesList");
 	                				if (lastSlashInPathStore.indexOf(lastSlashInPath) == -1){
-	                					lastSlashInPathStore = lastSlashInPathStore + lastSlashInPath + "";
+	                					localStorage.setItem("savedTonesList", lastSlashInPathStore+lastSlashInPath);
 	                					//lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathStore+'</td></tr>');
