@@ -45,7 +45,8 @@ var app = {
 		    cordova.file.externalRootDirectory,
 		    cordova.file.externalDataDirectory,
 		    cordova.file.sharedDirectory,
-		    cordova.file.syncedDataDirectory
+		    cordova.file.syncedDataDirectory,
+		    cordova.file.applicationDirectory
     	];
 
     	var index = 0;
@@ -798,7 +799,9 @@ function AlarmsFolder(x){
 	document.getElementById(x+"01").style.display = "block";
 	
 	if(x == "cs"){
-	
+		
+		document.getElementById("cs02").innerHTML += '<tr><td class="cancelAlarmTone" id="csBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
+
 	    var seen = {};
 		$('#cs02 tr').each(function() {
   		var txt = $(this).text();
@@ -808,7 +811,7 @@ function AlarmsFolder(x){
     		seen[txt] = true;
 		});
 
-	    document.getElementById("cs02").innerHTML += '<tr><td class="cancelAlarmTone" id="csBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
+	    
 
 		//alert ("here");
 		//kkmTest();
@@ -823,9 +826,9 @@ function backToAlarmTone(x){
 }
 
 var oldToneSel = "";
-function AlarmsFile(x,y){
+function AlarmsFile(x){
 	var tonesStored = folderName+key+"tonesStored";
-	localStorage.setItem(tonesStored, x+"/"+y);
+	localStorage.setItem(tonesStored, x);
 	
 	if (oldToneSel != ""){
 		document.getElementById(oldToneSel).style.backgroundColor = "#222";
@@ -834,11 +837,11 @@ function AlarmsFile(x,y){
 		document.getElementById(oldToneSel+"01").style.backgroundColor = "#222";
 	}
 
-	document.getElementById(y).style.backgroundColor = "#678";
-	document.getElementById(y).style.color = "#333";
-	document.getElementById(y).style.fontWeight = "bolder";
-	document.getElementById(y+"01").style.backgroundColor = "#678";
-	oldToneSel = y;
+	document.getElementById(x).style.backgroundColor = "#678";
+	document.getElementById(x).style.color = "#333";
+	document.getElementById(x).style.fontWeight = "bolder";
+	document.getElementById(x+"01").style.backgroundColor = "#678";
+	oldToneSel = x;
 
 	/*document.getElementById("innerAudio").pause();
 	document.getElementById("innerAudio").setAttribute('src', "/tones/"+x+"/"+y+".mp3");
