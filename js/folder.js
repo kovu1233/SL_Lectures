@@ -38,10 +38,7 @@ var app = {
 
     	//getFiles
     	
-    	document.getElementById("browseTones").addEventListener("click", addFileEntry, false);
-		
-		
-
+    	
 		var localURLs = [
 	    	cordova.file.dataDirectory,
 		    cordova.file.documentsDirectory,
@@ -111,11 +108,16 @@ var app = {
 		    //document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		};
 
-		for (i = 0; i < localURLs.length; i++) {
-    		if (localURLs[i] === null || localURLs[i].length === 0) {
-        		continue; // skip blank / non-existent paths for this platform
-    		}
-    		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
+
+		document.getElementById("browseTones").addEventListener("click", browseTones, false);
+
+		function browseTones(){
+			for (i = 0; i < localURLs.length; i++) {
+	    		if (localURLs[i] === null || localURLs[i].length === 0) {
+	        		continue; // skip blank / non-existent paths for this platform
+	    		}
+	    		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
+			}
 		}
 	
 
@@ -484,9 +486,6 @@ function modifyAlarm(x){
 	document.getElementById("modifyFolder").innerHTML = '<div style="font-size:200%; font-weight: bolder; color: #DDD; text-transform: capitalize;"><u>Editing '+folderName+'</u></div><br><input type="text" placeholder="Press to set '+folderName+'" id="modifyInputFolder" autocomplete="off" style="font-size: 150%; width: 65%; background-color: transparent; border: none; border-bottom: 1px blue solid;"><br><br><table width="80%" align="center" border="0"><tr><td onclick="goBack2();"><div class="buttonGrey">Cancel</div></td><td><div class="buttonGrey" onclick="modifyInputFolder(\''+folderName+'\');">Change</div></td></tr><tr><td colspan="2">&nbsp;</td></tr><tr><td colspan="2"><div class="buttonRed"  onclick="deleteInputFolder(\''+folderName+'\');"><img src="img/delete.png">Delete</div></td></tr></table><br><br>';
 */}
 
-function browseTones(){
-	tonesBrowser();
-}
 
 function updateAlarm(x){
 	localStorage.setItem(folderName+x+"alarmTiming", document.getElementById("alarmTiming001").value);
