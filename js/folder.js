@@ -77,7 +77,7 @@ var app = {
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1]+"";
 		                			
 	                				if (!lastSlashInPathStore.includes(lastSlashInPath)){
-	                					lastSlashInPathStore += lastSlashInPath+"";
+	                					lastSlashInPathStore = lastSlashInPathStore + lastSlashInPath + "";
 	                					//lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPath+'</td></tr>');
