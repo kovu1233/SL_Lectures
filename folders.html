@@ -142,6 +142,9 @@
 					<tr>
 						<td class="tabs" id="testMeCS" style="font-weight: bolder; background-color: #000;font-style: normal;"><u>CUSTOM TONES</u></td>
 					</tr>
+					<tr>
+						<td class="tabs1" style="color:#9999EE; font-weight:bolder;" onclick="browseTones();">Add New Tones</td>
+					</tr>
 				</table>
 			</section>
 
@@ -224,16 +227,16 @@
 						<td colspan="2" class="tabs" style="font-weight: bolder; background-color: #000;font-style: normal;"><u>RISE & SHINE</u></td>
 					</tr>
 					<tr>
-						<td class="tabs1 indTbl" id="Daybreak" onclick="AlarmsFile('rs', this.id);">Daybreak</td>
-						<td width="60px" onclick="plTest('rs', this.id);" class="tabs1 indTblPl" id="Daybreak01"><img src="img/play.png" width="40px"></td>
+						<td class="tabs1 indTbl" id="rs/Daybreak" onclick="AlarmsFile(this.id);">Daybreak</td>
+						<td width="60px" onclick="plTest(this.id);" class="tabs1 indTblPl" id="rs/Daybreak01"><img src="img/play.png" width="40px"></td>
 					</tr>
 					<tr>
-						<td class="tabs1 indTbl" id="EarlyRiser" onclick="AlarmsFile('rs', this.id);" style="text-indent: 40px;">EarlyRiser</td>
-						<td width="60px" onclick="plTest('rs', this.id);" class="tabs1 indTblPl" id="EarlyRiser01"><img src="img/play.png" width="40px"></td>
+						<td class="tabs1 indTbl" id="rs/EarlyRiser" onclick="AlarmsFile(this.id);" style="text-indent: 40px;">EarlyRiser</td>
+						<td width="60px" onclick="plTest(this.id);" class="tabs1 indTblPl" id="rs/EarlyRiser01"><img src="img/play.png" width="40px"></td>
 					</tr>
 					<tr>
-						<td class="tabs1 indTbl" id="SlowMorning" onclick="AlarmsFile('rs', this.id);" style="text-indent: 40px;">SlowMorning</td>
-						<td width="60px" onclick="plTest('rs', this.id);" class="tabs1 indTblPl" id="SlowMorning01" ><img src="img/play.png" width="40px"></td>
+						<td class="tabs1 indTbl" id="rs/SlowMorning" onclick="AlarmsFile(this.id);" style="text-indent: 40px;">SlowMorning</td>
+						<td width="60px" onclick="plTest(this.id);" class="tabs1 indTblPl" id="rs/SlowMorning01" ><img src="img/play.png" width="40px"></td>
 					</tr>
 					<tr>
 						<td colspan="2" class="cancelAlarmTone" id="rsBack" onclick="backToAlarmTone(this.id);">Back</td>
