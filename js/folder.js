@@ -77,16 +77,13 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
-		                			var kamalqulinchi = localStorage.getItem("savedTonesList");
-	                				if (kamalqulinchi.indexOf(lastSlashInPath) == -1){
-	                					localStorage.setItem("savedTonesList", kamalqulinchi+lastSlashInPath);
+		                			kamalqulinchi = localStorage.getItem("savedTonesList");
+	                				//if (kamalqulinchi.indexOf(lastSlashInPath) == -1){
+	                					localStorage.setItem("savedTonesList", kamalqulinchi+lastSlashInPath+"");
 	                					//kamalqulinchi.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+localStorage.getItem("savedTonesList")+'</td></tr>');
-	                				}
-	                				else{
-	                					fileStr += "";	
-	                				}
+	                				//}
 		                   		}
 		                   	index++;
 		                }
