@@ -51,7 +51,7 @@ var app = {
     	var index = 0;
 		var i;
 		var statusStr = "";
-		var lastSlashInPathStore = "";
+		var lastSlashInPathStore = [];
 
 		var addFileEntry = function (entry) {
 		    var dirReader = entry.createReader();
@@ -76,8 +76,8 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
-	                				if (lastSlashInPathStore.indexOf(lastSlashInPath) == -1){
-	                					lastSlashInPathStore += lastSlashInPath;
+	                				if (!lastSlashInPathStore.includes(lastSlashInPath)){
+	                					lastSlashInPathStore.push(lastSlashInPath);
 	                					//lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPath+'</td></tr>');
