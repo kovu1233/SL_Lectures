@@ -76,11 +76,14 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1]+"";
 		                			
-	                				if (lastSlashInPathStore.includes(lastSlashInPath)){
+	                				if (lastSlashInPathStore.indexOf(lastSlashInPath) == -1){
 	                					lastSlashInPathStore = lastSlashInPathStore + lastSlashInPath + "";
 	                					//lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
 	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPath+'</td></tr>');
+	                				}
+	                				else{
+	                					fileStr += "";	
 	                				}
 		                   		}
 		                   	index++;
