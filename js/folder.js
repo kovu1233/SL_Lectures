@@ -38,8 +38,9 @@ var app = {
 
     	//getFiles
     	
+    	document.getElementById("browseTones").addEventListener("click", tonesBrowser, false);
 		
-		document.getElementById("browseTones").addEventListener("click", function(){
+		function tonesBrowser(){
 
 			var localURLs = [
 	    	cordova.file.dataDirectory,
@@ -116,7 +117,7 @@ var app = {
     		}
     		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
 		}
-	});
+	}
 
 
     	/*function listDir(path){
