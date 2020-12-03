@@ -74,7 +74,7 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
-	                				if (lastSlashInPathStore.indexOf(lastSlashInPath) == -1){
+	                				if (lastSlashInPathStore.indexOf(lastSlashInPath) === -1){
 	                					lastSlashInPathStore = lastSlashInPathStore + lastSlashInPath + " ";
 	                					//lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
