@@ -82,7 +82,7 @@ var app = {
 	                					localStorage.setItem("savedTonesList", lastSlashInPathStore+lastSlashInPath);
 	                					//lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
-	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathStore+'</td></tr>');
+	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
 	                				}
 	                				else{
 	                					fileStr += "";	
