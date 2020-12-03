@@ -802,10 +802,12 @@ function AlarmsFolder(x){
 	    const st = new Set();
 	    for (const div of document.querySelectorAll('.tabs2')) {
 	    	if (st.has(div.textContent.trim())) {
-	        	div.parentNode.removeChild(div);
+	        	div.parentNode.parentNode.removeChild(div.parentNode.parentNode);
 	        }
 	        st.add(div.textContent.trim());
 	    }
+
+	    document.getElementById("cs02").innerHTML += '<tr><td class="cancelAlarmTone" id="csBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
 
 		//alert ("here");
 		//kkmTest();
@@ -846,6 +848,7 @@ function AlarmsFile(x,y){
 
 function AlarmsCFile(x){
 	document.getElementById("testMeCS").value = x;
+	console.log(x);
 }
 
 
