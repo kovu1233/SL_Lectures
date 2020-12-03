@@ -799,13 +799,14 @@ function AlarmsFolder(x){
 	
 	if(x == "cs"){
 	
-	    const st = new Set();
-	    for (const div of document.querySelectorAll('.tabs2')) {
-	    	if (st.has(div.textContent.trim())) {
-	        	div.parentNode.parentNode.removeChild(div.parentNode.parentNode);
-	        }
-	        st.add(div.textContent.trim());
-	    }
+	    var seen = {};
+		$('#cs02 tr').each(function() {
+  		var txt = $(this).text();
+  		if (seen[txt])
+    		$(this).remove();
+  		else
+    		seen[txt] = true;
+		});
 
 	    document.getElementById("cs02").innerHTML += '<tr><td class="cancelAlarmTone" id="csBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
 
