@@ -80,7 +80,7 @@ var app = {
 	                					lastSlashInPathStore = lastSlashInPathStore + lastSlashInPath + "";
 	                					//lastSlashInPathStore.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
-	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPath+'</td></tr>');
+	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathStore+'</td></tr>');
 	                				}
 	                				else{
 	                					fileStr += "";	
