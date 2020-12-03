@@ -51,7 +51,7 @@ var app = {
     	var index = 0;
 		var i;
 		var statusStr = "";
-		var kamalqulinchi = "";
+		//var kamalqulinchi = "";
 		localStorage.setItem("savedTonesList", "");
 
 		var addFileEntry = function (entry) {
@@ -77,7 +77,7 @@ var app = {
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 		                			
-		                			kamalqulinchi = localStorage.getItem("savedTonesList");
+		                			var kamalqulinchi = localStorage.getItem("savedTonesList");
 	                				if (kamalqulinchi.indexOf(lastSlashInPath) == -1){
 	                					localStorage.setItem("savedTonesList", kamalqulinchi+lastSlashInPath);
 	                					//kamalqulinchi.push(lastSlashInPath);
