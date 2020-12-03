@@ -76,14 +76,8 @@ var app = {
 		                		if (ext == "mp3" || ext == "ogg"){
 		                			var pathSplitter = pathString.split("/");
 		                			var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
-		                			
-		                			//kamalqulinchi = localStorage.getItem("savedTonesList");
-	                				if (localStorage.getItem("savedTonesList").indexOf(lastSlashInPath) == -1){
-	                					localStorage.setItem("savedTonesList", localStorage.getItem("savedTonesList")+lastSlashInPath+"");
-	                					//kamalqulinchi.push(lastSlashInPath);
-	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
-	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+localStorage.getItem("savedTonesList")+'</td></tr>');
-	                				}
+		                			var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
+	                				fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
 		                   		}
 		                   	index++;
 		                }
@@ -248,15 +242,7 @@ folderName = folderName.replace("%20", " ");
 document.getElementById("FolderAlarmsTitle").innerHTML = folderName;
 
 
-function kkmTest(){
-	var fileStr = "";
-	for (var i = 0; i < 10; i++){
-		//alert ("ok");
-		fileStr += '<tr><td class="tabs1" id="'+i+'" onclick="AlarmsCFile(this.innerHTML);">'+i+i+'</td></tr>';
-	}
-	//alert (fileStr);
-	document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + fileStr;
-}
+
 /*alert ("selected days are: "+localStorage.getItem(folderName+keySeek+"daySelect")+newLine
 		+"Alarm Timing is: "+localStorage.getItem(folderName+keySeek+"alarmTiming")+newLine
 		+"Alarm Name is: "+localStorage.getItem(folderName+keySeek+"alarmName")+newLine
@@ -848,6 +834,11 @@ function AlarmsFile(x,y){
 	document.getElementById("innerAudio").play();
 	document.getElementById("innerAudio").loop = true;*/
 }
+
+function AlarmsCFile(x){
+	document.getElementById("alertedContent").value = x;
+}
+
 
 var oldPlE = "";
 function plTest(x, y){
