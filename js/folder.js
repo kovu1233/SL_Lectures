@@ -861,15 +861,17 @@ function AlarmsCFile(x){
 
 
 var oldPlE = "";
-function plTest(x, y){
-	var inaImg = document.getElementById(y);
+function plTest(x){
+	//var y = x.split("/")
+	//alert (y[1]);
+	var inaImg = document.getElementById(x);
 	var playMe = '<img src="img/play.png" width="40px">';
 	var stopMe = '<img src="img/stop.png" width="40px">';
 
 	if (inaImg.innerHTML == playMe){
-		y = y.substring(0, y.length - 2);
+		//yWOExt = x.substring(0, x.length - 2);
  		document.getElementById("innerAudio").pause();
-		document.getElementById("innerAudio").setAttribute('src', "/tones/"+x+"/"+y+".mp3");
+		document.getElementById("innerAudio").setAttribute('src', "/tones/"+x+".mp3");
 		
 
 
@@ -877,11 +879,11 @@ function plTest(x, y){
 		document.getElementById("innerAudio").play();
 		inaImg.innerHTML = stopMe;
 		if (oldPlE != ""){
-			if (document.getElementById(oldPlE+"01").innerHTML == stopMe){
-				document.getElementById(oldPlE+"01").innerHTML = playMe;
+			if (document.getElementById(oldPlE).innerHTML == stopMe){
+				document.getElementById(oldPlE).innerHTML = playMe;
 			}
 		}
-		oldPlE = y;
+		oldPlE = x;
 
 
 	}
