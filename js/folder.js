@@ -39,7 +39,7 @@ var app = {
     	//getFiles
     	
 		
-		function tonesBrowser(){
+		document.getElementById("browseTones").addEventListener("click", function(){
 
 			var localURLs = [
 	    	cordova.file.dataDirectory,
@@ -116,7 +116,7 @@ var app = {
     		}
     		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
 		}
-	}
+	});
 
 
     	/*function listDir(path){
