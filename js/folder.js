@@ -82,7 +82,7 @@ var app = {
 	                					localStorage.setItem("savedTonesList", kamalqulinchi+lastSlashInPath);
 	                					//kamalqulinchi.push(lastSlashInPath);
 	                					var lastSlashInPathWOExt = lastSlashInPath.slice(0, - 4);
-	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+lastSlashInPathWOExt+'</td></tr>');
+	                					fileStr += ('<tr><td class="tabs1" id="'+pathString+'" onclick="AlarmsCFile(this.id);">'+localStorage.getItem("savedTonesList")+'</td></tr>');
 	                				}
 	                				else{
 	                					fileStr += "";	
