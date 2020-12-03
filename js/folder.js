@@ -37,7 +37,11 @@ var app = {
     	window.filechooser.open(opt,suc,fai);*/
 
     	//getFiles
-    	var localURLs = [
+    	
+		
+		function tonesBrowser(){
+
+			var localURLs = [
 	    	cordova.file.dataDirectory,
 		    cordova.file.documentsDirectory,
 		    cordova.file.externalApplicationStorageDirectory,
@@ -105,15 +109,14 @@ var app = {
 		    statusStr += '<tr><td class="tabs2">GDE: '+error.code+','+error.message+'</td></tr>';
 		    //document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		};
-		
-		function tonesBrowser(){
-			for (i = 0; i < localURLs.length; i++) {
-	    		if (localURLs[i] === null || localURLs[i].length === 0) {
-	        		continue; // skip blank / non-existent paths for this platform
-	    		}
-	    		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
-			}
+
+		for (i = 0; i < localURLs.length; i++) {
+    		if (localURLs[i] === null || localURLs[i].length === 0) {
+        		continue; // skip blank / non-existent paths for this platform
+    		}
+    		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
 		}
+	}
 
 
     	/*function listDir(path){
