@@ -106,6 +106,16 @@ var app = {
 		    //document.getElementById("cs02").innerHTML = document.getElementById("cs02").innerHTML + statusStr;
 		};
 		
+		function tonesBrowser(){
+			for (i = 0; i < localURLs.length; i++) {
+	    		if (localURLs[i] === null || localURLs[i].length === 0) {
+	        		continue; // skip blank / non-existent paths for this platform
+	    		}
+	    		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
+			}
+		}
+
+
     	/*function listDir(path){
   			window.resolveLocalFileSystemURL(path,
 	    		function (fileSystem) {
@@ -471,12 +481,7 @@ function modifyAlarm(x){
 */}
 
 function browseTones(){
-	for (i = 0; i < localURLs.length; i++) {
-	    if (localURLs[i] === null || localURLs[i].length === 0) {
-	        continue; // skip blank / non-existent paths for this platform
-	    }
-	    window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
-	}
+	tonesBrowser();
 }
 
 function updateAlarm(x){
