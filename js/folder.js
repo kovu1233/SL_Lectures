@@ -55,7 +55,7 @@ var app = {
 		var i;
 		var statusStr = "";
 		//var kamalqulinchi = "";
-		localStorage.setItem("savedTonesList", "");
+		//localStorage.setItem("savedTonesList", "");
 
 		var addFileEntry = function (entry) {
 		    var dirReader = entry.createReader();
@@ -109,16 +109,16 @@ var app = {
 		};
 
 
-		document.getElementById("browseTones").addEventListener("click", browseTones, false);
+		//document.getElementById("browseTones").addEventListener("click", browseTones, false);
 
-		function browseTones(){
-			for (i = 0; i < localURLs.length; i++) {
-	    		if (localURLs[i] === null || localURLs[i].length === 0) {
-	        		continue; // skip blank / non-existent paths for this platform
-	    		}
-	    		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
-			}
+		
+		for (i = 0; i < localURLs.length; i++) {
+    		if (localURLs[i] === null || localURLs[i].length === 0) {
+        		continue; // skip blank / non-existent paths for this platform
+    		}
+    		window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
 		}
+		
 	
 
 
@@ -810,8 +810,24 @@ function AlarmsFolder(x){
 	document.getElementById("alarmTones").style.display = "none";
 	document.getElementById(x+"01").style.display = "block";
 	
+	if(x == "cf"){
+		var savedTonesList = localStorage.getItem("savedTonesList");
+		if (savedTonesList != ""){
+			var savedTonesListArr = savedTonesList.split('|');
+
+			document.getElementById("cf02").innerHTML = '<tr><td colspan="2" class="tabs" style="font-weight: bolder; background-color: #000;font-style: normal;"><u>CUSTOM TONES</u></td></tr><tr><td colspan="2" class="tabs1 indTbl" id="cs" onclick="AlarmsFolder(this.id);" style="color:#9999EE; font-weight:bolder;">Add New Tones</td></tr>';
+			for(var i = 0; i < savedTonesListArr.length; i++){
+				var pathSplitter = savedTonesListArr[i].split("/");
+		    	var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
+				document.getElementById("cf02").innerHTML += '<tr><td class="tabs1 indTbl" id="'+savedTonesListArr[i]+'" onclick="AlarmsFile(this.id);">'+lastSlashInPath+'</td><td width="60px" onclick="plTest(this.id);" class="tabs1 indTblPl" id="'+savedTonesListArr[i]+'01"><img src="img/play.png" width="40px"></td></tr>';	
+			}
+			document.getElementById("cf02").innerHTML += '<td colspan="2" class="cancelAlarmTone" id="cfBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
+		}
+	}
+
 	if(x == "cs"){
 		
+		document.getElementById("cf01").style.display = "none";
 		document.getElementById("cs02").innerHTML += '<tr><td class="cancelAlarmTone" id="csBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
 
 	    var seen = {};
@@ -865,6 +881,17 @@ function AlarmsFile(x){
 function AlarmsCFile(x){
 	document.getElementById("testMeCS").value = x;
 	console.log(x);
+
+	//I need to copy file here;
+
+	var savedTonesList = localStorage.getItem("savedTonesList");
+	if (savedTonesList == "" || savedTonesList == null){
+		var mynewX = x;
+	}
+	else{
+		mynewX = x+"|";
+	}
+	localStorage.setItem("savedTonesList", savedTonesList+mynewX);
 }
 
 
