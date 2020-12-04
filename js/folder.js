@@ -811,18 +811,20 @@ function AlarmsFolder(x){
 	document.getElementById(x+"01").style.display = "block";
 	
 	if(x == "cf"){
+		document.getElementById("cf02").innerHTML = '<tr><td colspan="2" class="tabs" style="font-weight: bolder; background-color: #000;font-style: normal;"><u>CUSTOM TONES</u></td></tr><tr><td colspan="2" class="tabs1 indTbl" id="cs" onclick="AlarmsFolder(this.id);" style="color:#9999EE; font-weight:bolder;">Add New Tones</td></tr>';
+
 		var savedTonesList = localStorage.getItem("savedTonesList");
+
 		if (savedTonesList != ""){
 			var savedTonesListArr = savedTonesList.split('|');
-
-			document.getElementById("cf02").innerHTML = '<tr><td colspan="2" class="tabs" style="font-weight: bolder; background-color: #000;font-style: normal;"><u>CUSTOM TONES</u></td></tr><tr><td colspan="2" class="tabs1 indTbl" id="cs" onclick="AlarmsFolder(this.id);" style="color:#9999EE; font-weight:bolder;">Add New Tones</td></tr>';
+			
 			for(var i = 0; i < savedTonesListArr.length; i++){
 				var pathSplitter = savedTonesListArr[i].split("/");
 		    	var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
 				document.getElementById("cf02").innerHTML += '<tr><td class="tabs1 indTbl" id="'+savedTonesListArr[i]+'" onclick="AlarmsFile(this.id);">'+lastSlashInPath+'</td><td width="60px" onclick="plTest(this.id);" class="tabs1 indTblPl" id="'+savedTonesListArr[i]+'01"><img src="img/play.png" width="40px"></td></tr>';	
 			}
-			document.getElementById("cf02").innerHTML += '<td colspan="2" class="cancelAlarmTone" id="cfBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
 		}
+		document.getElementById("cf02").innerHTML += '<td colspan="2" class="cancelAlarmTone" id="cfBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
 	}
 
 	if(x == "cs"){
