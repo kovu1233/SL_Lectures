@@ -881,19 +881,29 @@ function AlarmsFile(x){
 }
 
 function AlarmsCFile(x){
-	document.getElementById("testMeCS").value = x;
+	//document.getElementById(x).value = x;
 	console.log(x);
 
 	//I need to copy file here;
 
 	var savedTonesList = localStorage.getItem("savedTonesList");
+	
 	if (savedTonesList == "" || savedTonesList == null){
-		var mynewX = x;
+		var mynewX = savedTonesList+x;
 	}
 	else{
-		mynewX = x+"|";
+		var savedTonesListArr = savedTonesList.split("|");
+		for (var i = 0; i < savedTonesListArr.length; i++){
+			if (savedTonesListArr[i] == x+"|"){
+				var mynewX = savedTonesList;
+				break;
+			}
+			else{
+				var mynewX = savedTonesList+x+"|";
+			}
+		}
 	}
-	localStorage.setItem("savedTonesList", savedTonesList+mynewX);
+	localStorage.setItem("savedTonesList", mynewX);
 }
 
 
