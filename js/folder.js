@@ -894,7 +894,7 @@ function AlarmsCFile(x){
 	else{
 		var savedTonesListArr = savedTonesList.split("|");
 		for (var i = 0; i < savedTonesListArr.length; i++){
-			if (savedTonesListArr[i] == x+"|"){
+			if (savedTonesListArr[i] == x){
 				var mynewX = savedTonesList;
 				break;
 			}
