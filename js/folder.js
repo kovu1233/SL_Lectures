@@ -428,7 +428,7 @@ function setAudioPosition(position){
 function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
 	//audioElement.src = id+".mp3";
-	id = id.slice(-2);
+	id = id.substring(0, id.length-2);
 	audioElement.src = id;
 	var my_media1 = new Media(id,
 		function(){ console.log("playAudio():Audio Success"); },
