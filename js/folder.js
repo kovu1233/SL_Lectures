@@ -415,7 +415,7 @@ function setAudioPosition(position){
 }
 
 
-function playMaAudio(id){
+/*function playMaAudio(id){
 	var audioElement = document.getElementById(id);
 	var url = audioElement.getAttribute('src');
 	var my_media1 = new Media('/android_asset/www/' + url,
@@ -423,7 +423,16 @@ function playMaAudio(id){
 		function(err){ console.log("playAudio():Audio Error: " + err); }
 	);
 	my_media1.play();
+}*/
 
+function playMaAudio(id){
+	var audioElement = document.getElementById("successSound");
+	audioElement.getAttribute('src') = id;
+	var my_media1 = new Media(id,
+		function(){ console.log("playAudio():Audio Success"); },
+		function(err){ console.log("playAudio():Audio Error: " + err); }
+	);
+	my_media1.play();
 }
 
 
@@ -821,7 +830,7 @@ function AlarmsFolder(x){
 			for(var i = 0; i < savedTonesListArr.length; i++){
 				var pathSplitter = savedTonesListArr[i].split("/");
 		    	var lastSlashInPath = pathSplitter[pathSplitter.length - 1];
-				document.getElementById("cf02").innerHTML += '<tr><td class="tabs1 indTbl" id="'+savedTonesListArr[i]+'" onclick="AlarmsFile(this.id);">'+lastSlashInPath+'</td><td width="60px" onclick="plTest(this.id);" class="tabs1 indTblPl" id="'+savedTonesListArr[i]+'01"><img src="img/play.png" width="40px"></td></tr>';	
+				document.getElementById("cf02").innerHTML += '<tr><td class="tabs1 indTbl" id="'+savedTonesListArr[i]+'" onclick="AlarmsFile(this.id);">'+lastSlashInPath+'</td><td width="60px" onclick="playMaAudio(this.id);" class="tabs1 indTblPl" id="'+savedTonesListArr[i]+'01"><img src="img/play.png" width="40px"></td></tr>';	
 			}
 		}
 		document.getElementById("cf02").innerHTML += '<td colspan="2" class="cancelAlarmTone" id="cfBack" onclick="backToAlarmTone(this.id);">Back</td></tr>';
@@ -842,17 +851,19 @@ function AlarmsFolder(x){
 		});
 
 		var savedTonesList = localStorage.getItem("savedTonesList");
-		if (savedTonesList == "" || savedTonesList == null){}
+		if (savedTonesList == "" || savedTonesList == null){
+			var donothing = "";
+		}
 		else{
-			var savedTonesListArr = savedTonesList.split("|");
-			for (var i = 0; i < savedTonesListArr.length; i++){
-				$('#c02 tr td').each(function() {		
-	  				var txt = $(this).attr("id");
-	  				if (savedTonesListArr[i] == txt){
-	    				document.getElementById(savedTonesListArr[i]).style.backgroundColor = "#678";
-	    				document.getElementById(savedTonesListArr[i]).style.color = "#333";
-						document.getElementById(savedTonesListArr[i]).style.fontWeight = "bolder";
-	    				document.getElementById(savedTonesListArr[i]+"01").style.backgroundColor = "#678";
+			var savedTonesListArra = savedTonesList.split("|");
+			for (var i = 0; i < savedTonesListArra.length; i++){
+				$('#cs02 tr td').each(function() {		
+	  				var txte = $(this).attr("id");
+	  				if (savedTonesListArra[i] == txte){
+	    				document.getElementById(savedTonesListArra[i]).style.backgroundColor = "#678";
+	    				document.getElementById(savedTonesListArra[i]).style.color = "#333";
+						document.getElementById(savedTonesListArra[i]).style.fontWeight = "bolder";
+	    				document.getElementById(savedTonesListArra[i]+"01").style.backgroundColor = "#678";
 	  				}
 				});
 			}
@@ -920,6 +931,7 @@ function AlarmsCFile(x){
 			else{
 				mynewX = savedTonesList+"|"+x;
 				alert("alarm has been added");
+				backToAlarmTone("csBack");
 			}
 		}
 	}
