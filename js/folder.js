@@ -427,11 +427,14 @@ function setAudioPosition(position){
 
 function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
-	audioElement.getAttribute('src') = id;
+	//audioElement.src = id+".mp3";
+	audioElement.src = id;
 	var my_media1 = new Media(id,
 		function(){ console.log("playAudio():Audio Success"); },
 		function(err){ console.log("playAudio():Audio Error: " + err); }
 	);
+	//my_media1.load();
+	console.log(document.getElementById("successSound").src);
 	my_media1.play();
 }
 
