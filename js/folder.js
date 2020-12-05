@@ -841,12 +841,30 @@ function AlarmsFolder(x){
     		seen[txt] = true;
 		});
 
-	    
+		var savedTonesList = localStorage.getItem("savedTonesList");
+		if (savedTonesList == "" || savedTonesList == null){}
+		else{
+			var savedTonesListArr = savedTonesList.split("|");
+			for (var i = 0; i < savedTonesListArr.length; i++){
+				$('#c02 tr td').each(function() {		
+	  				var txt = $(this).attr("id");
+	  				if (savedTonesListArr[i] == txt){
+	    				document.getElementById(savedTonesListArr[i]).style.backgroundColor = "#678";
+	    				document.getElementById(savedTonesListArr[i]).style.color = "#333";
+						document.getElementById(savedTonesListArr[i]).style.fontWeight = "bolder";
+	    				document.getElementById(savedTonesListArr[i]+"01").style.backgroundColor = "#678";
+	  				}
+				});
+			}
+		}
 
-		//alert ("here");
-		//kkmTest();
-		//listDir(cordova.file.externalRootDirectory, "");
+
 	}
+
+	/*if(x == "rs"){
+
+		
+	}*/
 }
 
 function backToAlarmTone(x){
@@ -885,21 +903,23 @@ function AlarmsCFile(x){
 	console.log(x);
 
 	//I need to copy file here;
-
+	var mynewX = "";
 	var savedTonesList = localStorage.getItem("savedTonesList");
 	
 	if (savedTonesList == "" || savedTonesList == null){
-		var mynewX = savedTonesList+x;
+		mynewX = x;
 	}
 	else{
 		var savedTonesListArr = savedTonesList.split("|");
 		for (var i = 0; i < savedTonesListArr.length; i++){
 			if (savedTonesListArr[i] == x){
-				var mynewX = savedTonesList;
+				mynewX = savedTonesList;
+				alert("alarm already exists");
 				break;
 			}
 			else{
-				var mynewX = savedTonesList+x+"|";
+				mynewX = savedTonesList+"|"+x;
+				alert("alarm has been added");
 			}
 		}
 	}
