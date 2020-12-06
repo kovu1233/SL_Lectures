@@ -927,6 +927,7 @@ function AlarmsCFile(x){
 	localStorage.setItem("savedTonesList", mynewX);
 }
 
+var my_media1;
 var oldPlE = "";
 function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
@@ -936,7 +937,7 @@ function playMaAudio(id){
 
 	id = id.substring(0, id.length-2);
 	audioElement.src = id;
-	var my_media1 = new Media(id,
+	my_media1 = new Media(id,
 		function(){ console.log("playAudio():Audio Success"); },
 		function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
 	);
@@ -949,7 +950,7 @@ function playMaAudio(id){
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + err); }
 		);*/
-		my_media1.release();
+		//my_media1.release();
 		my_media1.play();
 		console.log(my_media1.getDuration());
 		inaImg.innerHTML = stopMe;
@@ -964,6 +965,11 @@ function playMaAudio(id){
 	}
 
 	else if(inaImg.innerHTML == stopMe){
+		audioElement.src = "";
+		/*my_media1 = new Media("",
+			function(){ console.log("playAudio():Audio Success"); },
+			function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
+		);*/
 		my_media1.pause();
 		inaImg.innerHTML = playMe;
 	}
