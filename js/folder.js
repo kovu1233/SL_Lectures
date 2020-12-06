@@ -964,7 +964,10 @@ function playMaAudio(id){
 
 	else if(inaImg.innerHTML == stopMe){
 		inaImg.innerHTML = playMe;
-		stopMaAudio();
+		if(my_media1){
+			my_media1.stop();
+			alert ("should stop");
+		}
 	}
 
 	
