@@ -425,21 +425,6 @@ function setAudioPosition(position){
 	my_media1.play();
 }*/
 
-function playMaAudio(id){
-	var audioElement = document.getElementById("successSound");
-	//audioElement.src = id+".mp3";
-	id = id.substring(0, id.length-2);
-	audioElement.src = id;
-	var my_media1 = new Media(id,
-		function(){ console.log("playAudio():Audio Success"); },
-		function(err){ console.log("playAudio():Audio Error: " + err); }
-	);
-	//my_media1.load();
-	console.log(document.getElementById("successSound").src);
-	my_media1.play();
-}
-
-
 function modifyAlarm(x){
 	var x = x.substr(x.length - 3);
 	var selectedAlarmTime = localStorage.getItem(folderName+x+"alarmTiming");
@@ -942,8 +927,51 @@ function AlarmsCFile(x){
 	localStorage.setItem("savedTonesList", mynewX);
 }
 
-
 var oldPlE = "";
+function playMaAudio(id){
+	var audioElement = document.getElementById("successSound");
+	var inaImg = document.getElementById(x);
+	var playMe = '<img src="img/play.png" width="40px">';
+	var stopMe = '<img src="img/stop.png" width="40px">';
+
+	id = id.substring(0, id.length-2);
+	audioElement.src = id;
+	var my_media1 = new Media(id,
+		function(){ console.log("playAudio():Audio Success"); },
+		function(err){ console.log("playAudio():Audio Error: " + err); }
+	);
+
+	if (inaImg.innerHTML == playMe){
+		my_media1.pause();
+
+		var my_media1 = new Media(id,
+			function(){ console.log("playAudio():Audio Success"); },
+			function(err){ console.log("playAudio():Audio Error: " + err); }
+		);
+
+		my_media1.play();
+		inaImg.innerHTML = stopMe;
+		if (oldPlE != ""){
+			if (document.getElementById(oldPlE).innerHTML == stopMe){
+				document.getElementById(oldPlE).innerHTML = playMe
+			}
+		}
+		oldPlE = x;
+	}
+
+	else if(inaImg.innerHTML == stopMe){
+		my_media1.pause();
+		inaImg.innerHTML = playMe;
+	}
+
+	
+	//my_media1.load();
+	//console.log(document.getElementById("successSound").src);
+	//my_media1.play();
+}
+
+
+
 function plTest(x){
 	//var y = x.split("/")
 	//alert (y[1]);
