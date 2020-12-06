@@ -966,10 +966,10 @@ function playMaAudio(id){
 
 	else if(inaImg.innerHTML == stopMe){
 		audioElement.src = "";
-		/*my_media1 = new Media("",
+		my_media1 = new Media("",
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
-		);*/
+		);
 		my_media1.pause();
 		inaImg.innerHTML = playMe;
 	}
