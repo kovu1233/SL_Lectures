@@ -929,6 +929,7 @@ function AlarmsCFile(x){
 
 var my_media1 = null;
 var oldPlE = "";
+
 function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
 	var inaImg = document.getElementById(id);
@@ -937,20 +938,17 @@ function playMaAudio(id){
 
 	id = id.substring(0, id.length-2);
 	audioElement.src = id;
-	my_media1 = new Media(id,
-		function(){ console.log("playAudio():Audio Success"); },
-		function(err){ console.log("playAudio():Audio Error: " + err); }
-	);
+	my_media1 = new Media(id, onSuccessMedia, onErrorMedia);
 
 	if (inaImg.innerHTML == playMe){
 		//console.log(inaImg.innerHTML);
-		my_media1.pause();
+		//my_media1.pause();
 
 		/*my_media1 = new Media(id,
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + err); }
 		);*/
-		my_media1.release();
+		//my_media1.release();
 		my_media1.play();
 		//console.log(my_media1.getDuration());
 		inaImg.innerHTML = stopMe;
@@ -965,12 +963,13 @@ function playMaAudio(id){
 	}
 
 	else if(inaImg.innerHTML == stopMe){
-		audioElement.src = "";
-		my_media1 = Media(id,
+		//audioElement.src = "";
+		/*my_media1 = Media(id,
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
-		);
+		);*/
 		my_media1.pause();
+		my_media1.stop();
 		inaImg.innerHTML = playMe;
 		alert ("stopped");
 	}
@@ -979,6 +978,15 @@ function playMaAudio(id){
 	//my_media1.load();
 	//console.log(document.getElementById("successSound").src);
 	//my_media1.play();
+}
+
+function onSuccessMedia(){
+	console.log("playAudio():Audio Success");
+}
+
+function onErrorMedia(){
+	alert('code: '    + error.code    + '\n' + 
+                  'message: ' + error.message + '\n');
 }
 
 
