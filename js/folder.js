@@ -956,7 +956,7 @@ function playMaAudio(id){
 		
 		if (oldPlE != ""){
 			if (document.getElementById(oldPlE).innerHTML == stopMe){
-				document.getElementById(oldPlE).innerHTML = playMe
+				document.getElementById(oldPlE).innerHTML = playMe;
 				my_media1.stop();
 			}
 		}
