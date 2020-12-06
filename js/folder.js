@@ -934,7 +934,7 @@ function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
 	var inaImg = document.getElementById(id);
 	var playMe = '<img src="img/play.png" width="40px">';
-	var stopMe = '<img src="img/stop.png" width="40px" onclick="stopMaAudio();">';
+	var stopMe = '<img src="img/stop.png" width="40px">';
 
 	id = id.substring(0, id.length-2);
 	audioElement.src = id;
@@ -963,15 +963,8 @@ function playMaAudio(id){
 	}
 
 	else if(inaImg.innerHTML == stopMe){
-		//audioElement.src = "";
-		/*my_media1 = Media(id,
-			function(){ console.log("playAudio():Audio Success"); },
-			function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
-		);*/
-		my_media1.pause();
-		my_media1.stop();
 		inaImg.innerHTML = playMe;
-		alert ("stopped");
+		stopMaAudio();
 	}
 
 	
