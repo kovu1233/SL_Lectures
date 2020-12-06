@@ -966,7 +966,7 @@ function playMaAudio(id){
 
 	else if(inaImg.innerHTML == stopMe){
 		audioElement.src = "";
-		my_media1 = new Media(id,
+		my_media1 = Media(id,
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
 		);
