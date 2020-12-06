@@ -927,7 +927,7 @@ function AlarmsCFile(x){
 	localStorage.setItem("savedTonesList", mynewX);
 }
 
-var my_media1;
+var my_media1 = null;
 var oldPlE = "";
 function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
@@ -939,20 +939,20 @@ function playMaAudio(id){
 	audioElement.src = id;
 	my_media1 = new Media(id,
 		function(){ console.log("playAudio():Audio Success"); },
-		function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
+		function(err){ console.log("playAudio():Audio Error: " + err); }
 	);
 
 	if (inaImg.innerHTML == playMe){
-		console.log(inaImg.innerHTML);
+		//console.log(inaImg.innerHTML);
 		my_media1.pause();
 
 		/*my_media1 = new Media(id,
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + err); }
 		);*/
-		//my_media1.release();
+		my_media1.release();
 		my_media1.play();
-		console.log(my_media1.getDuration());
+		//console.log(my_media1.getDuration());
 		inaImg.innerHTML = stopMe;
 		
 		if (oldPlE != ""){
@@ -966,12 +966,13 @@ function playMaAudio(id){
 
 	else if(inaImg.innerHTML == stopMe){
 		audioElement.src = "";
-		my_media1 = new Media("",
+		my_media1 = new Media(id,
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + json_encode(err)); }
 		);
 		my_media1.pause();
 		inaImg.innerHTML = playMe;
+		alert ("stopped");
 	}
 
 	
