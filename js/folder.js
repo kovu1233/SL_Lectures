@@ -943,7 +943,7 @@ function playMaAudio(id){
 
 	if (inaImg.innerHTML == playMe){
 		console.log(inaImg.innerHTML);
-		my_media1.stop();
+		my_media1.pause();
 
 		/*my_media1 = new Media(id,
 			function(){ console.log("playAudio():Audio Success"); },
@@ -957,14 +957,14 @@ function playMaAudio(id){
 		if (oldPlE != ""){
 			if (document.getElementById(oldPlE).innerHTML == stopMe){
 				document.getElementById(oldPlE).innerHTML = playMe;
-				my_media1.stop();
+				//my_media1.stop();
 			}
 		}
 		oldPlE = id;
 	}
 
 	else if(inaImg.innerHTML == stopMe){
-		my_media1.stop();
+		my_media1.pause();
 		inaImg.innerHTML = playMe;
 	}
 
