@@ -942,12 +942,13 @@ function playMaAudio(id){
 	);
 
 	if (inaImg.innerHTML == playMe){
+		console.log(inaImg.innerHTML);
 		my_media1.pause();
 
-		var my_media1 = new Media(id,
+		/*my_media1 = new Media(id,
 			function(){ console.log("playAudio():Audio Success"); },
 			function(err){ console.log("playAudio():Audio Error: " + err); }
-		);
+		);*/
 
 		my_media1.play();
 		inaImg.innerHTML = stopMe;
