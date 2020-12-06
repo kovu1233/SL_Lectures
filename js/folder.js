@@ -934,7 +934,7 @@ function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
 	var inaImg = document.getElementById(id);
 	var playMe = '<img src="img/play.png" width="40px">';
-	var stopMe = '<img src="img/stop.png" width="40px">';
+	var stopMe = '<img src="img/stop.png" width="40px" onclick="stopMaAudio();">';
 
 	id = id.substring(0, id.length-2);
 	audioElement.src = id;
@@ -978,6 +978,12 @@ function playMaAudio(id){
 	//my_media1.load();
 	//console.log(document.getElementById("successSound").src);
 	//my_media1.play();
+}
+
+function stopMaAudio(){
+	if(my_media1){
+		my_media1.stop();
+	}
 }
 
 function onSuccessMedia(){
