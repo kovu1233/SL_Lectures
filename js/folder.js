@@ -930,7 +930,7 @@ function AlarmsCFile(x){
 var oldPlE = "";
 function playMaAudio(id){
 	var audioElement = document.getElementById("successSound");
-	var inaImg = document.getElementById(x);
+	var inaImg = document.getElementById(id);
 	var playMe = '<img src="img/play.png" width="40px">';
 	var stopMe = '<img src="img/stop.png" width="40px">';
 
@@ -957,7 +957,7 @@ function playMaAudio(id){
 				document.getElementById(oldPlE).innerHTML = playMe
 			}
 		}
-		oldPlE = x;
+		oldPlE = id;
 	}
 
 	else if(inaImg.innerHTML == stopMe){
